@@ -1,0 +1,39 @@
+    <div class="form">
+        <div class="data">
+            <label for="location">Hegység:</label>
+            <select name="locationId" id="location" #hegyseg (change)="onLocationChange(hegyseg.value)" >
+                <option value="">Kérem válasszon</option>
+                <option *ngFor="let location of locations" 
+                    value="{{location.locationName}}">{{location.locationName}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="viewpoints">
+        <div class="viewpoint" *ngFor="let viewpoint of viewpoints">
+            <h2>{{viewpoint.viewpointName}}</h2>
+            <div>
+                <ul>
+                    <li>
+                        <label>Hegység:</label>
+                        <span>{{viewpoint.mountain}}</span>
+                    </li>
+                    <li>
+                        <label>Magassága:</label>
+                        <span>{{viewpoint.height}} m</span>
+                    </li>
+                    <li>
+                        <label>Épült:</label>
+                        <span>{{viewpoint.built }}</span>
+                    </li>
+                </ul>
+            </div>
+            <p class="description">
+                {{viewpoint.description}}
+            </p>
+            <div class="image">
+                <img src="{{viewpoint.imageUrl}}">
+            </div>
+        </div>
+
+    </div>
